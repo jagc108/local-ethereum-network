@@ -41,8 +41,6 @@ Recommendation:
 - For production archive nodes, prefer **standalone servers** when IO and latency are critical and workloads are steady.
 - Use **Kubernetes** when you already have strong platform maturity and can guarantee storage performance (local NVMe + dedicated nodes).
 
-TODO: Validate with official client operator guidance for recommended deployment models.
-
 ---
 
 ## 3) Data and Storage Strategy
@@ -89,8 +87,6 @@ Archive nodes should not be exposed directly. Use a gateway in front:
 Recommendation:
 - RPC: Gateway + ALB (or equivalent) for auth + rate limits + observability.
 - P2P: Direct node exposure with strict firewall rules.
-
-TODO: Confirm preferred gateways from official client/operator docs.
 
 ---
 
