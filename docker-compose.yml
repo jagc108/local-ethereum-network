@@ -1,0 +1,66 @@
+services:
+  nethermind-validator:
+    image: nethermind/nethermind:latest
+    command:
+      - "--config"
+      - "/config/validator.json"
+      - "--data-dir"
+      - "/data"
+    volumes:
+      - ./config/nethermind:/config:ro
+      - ./data/nethermind-validator:/data
+      - ./secrets/jwt.hex:/jwt.hex:ro
+    ports:
+      - "8546:8545"
+    networks:
+      - ethnet
+
+  teku-validator:
+    image: consensys/teku:latest
+    command:
+      - "--config-file"
+      - "/config/teku/validator.yaml"
+    volumes:
+      - ./config/teku:/config/teku:ro
+      - ./data/teku-validator:/data
+      - ./secrets/jwt.hex:/jwt.hex:ro
+      - ./secrets/validator-keys:/keys
+      - ./secrets/validator-passwords:/passwords
+    depends_on:
+      - nethermind-validator
+    networks:
+      - ethnet
+
+  nethermind-archive:
+    image: nethermind/nethermind:latest
+    command:
+      - "--config"
+      - "/config/archive.json"
+      - "--data-dir"
+      - "/data"
+    volumes:
+      - ./config/nethermind:/config:ro
+      - ./data/nethermind-archive:/data
+      - ./secrets/jwt.hex:/jwt.hex:ro
+    ports:
+      - "8545:8545"
+    networks:
+      - ethnet
+
+  teku-archive:
+    image: consensys/teku:latest
+    command:
+      - "--config-file"
+      - "/config/teku/archive.yaml"
+    volumes:
+      - ./config/teku:/config/teku:ro
+      - ./data/teku-archive:/data
+      - ./secrets/jwt.hex:/jwt.hex:ro
+    depends_on:
+      - nethermind-archive
+    networks:
+      - ethnet
+
+networks:
+  ethnet:
+    driver: bridge

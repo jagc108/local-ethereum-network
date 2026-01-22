@@ -1,0 +1,16 @@
+# runtime data
+/data/
+/genesis-output/
+
+# secrets
+/secrets/*
+!/secrets/README.md
+!/secrets/.gitkeep
+
+# generated genesis artifacts
+/config/teku/genesis.ssz
+/config/teku/config.yaml
+/config/nethermind/chainspec.json
+/config/nethermind/genesis.json
+
+AGENTS.md

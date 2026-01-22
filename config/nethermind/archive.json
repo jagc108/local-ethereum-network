@@ -1,0 +1,20 @@
+{
+  "Init": {
+    "ChainSpecPath": "/config/chainspec.json"
+  },
+  "Pruning": {
+    "Mode": "None"
+  },
+  "Bloom": {
+    "Index": true
+  },
+  "JsonRpc": {
+    "Enabled": true,
+    "Host": "0.0.0.0",
+    "Port": 8545,
+    "EngineHost": "0.0.0.0",
+    "EnginePort": 8551,
+    "JwtSecretFile": "/jwt.hex",
+    "EnabledModules": ["Eth", "Net", "Web3", "Debug", "Trace", "TxPool"]
+  }
+}

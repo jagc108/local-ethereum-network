@@ -1,0 +1,24 @@
+# Teku CLI reference: https://docs.teku.consensys.io/25.11.1/reference/cli
+
+# Data directory (data-base-path / data-path)
+data-base-path: "/data"
+
+# Network configuration: use generated config.yaml from the genesis generator
+network: "/config/teku/config.yaml"
+
+# SSZ genesis state for custom local network (generated)
+genesis-state: "/config/teku/genesis.ssz"
+
+# Execution layer connection (Engine API)
+ee-endpoint: "http://nethermind-validator:8551"
+ee-jwt-secret-file: "/jwt.hex"
+
+# Validator keys and passwords
+validator-keys: "/keys:/passwords"
+
+# Required post-Bellatrix: set fee recipient address for block proposals.
+# TODO: replace with a prefunded local address if needed.
+validators-proposer-default-fee-recipient: "0x1111111111111111111111111111111111111111"
+
+p2p-static-peers:
+  - "/dns4/teku-archive/tcp/9000/p2p/16Uiu2HAmD17ig62eun93Y4RTz3AKW7ZW8G8jdmk3hkAw6qUX1jds"

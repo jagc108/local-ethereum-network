@@ -1,0 +1,17 @@
+# Teku CLI reference: https://docs.teku.consensys.io/25.11.1/reference/cli
+
+# Data directory (data-base-path / data-path)
+data-base-path: "/data"
+
+# Network configuration: use generated config.yaml from the genesis generator
+network: "/config/teku/config.yaml"
+
+# SSZ genesis state for custom local network (generated)
+genesis-state: "/config/teku/genesis.ssz"
+
+# Execution layer connection (Engine API)
+ee-endpoint: "http://nethermind-archive:8551"
+ee-jwt-secret-file: "/jwt.hex"
+
+p2p-static-peers:
+  - "/dns4/teku-validator/tcp/9000/p2p/16Uiu2HAm2tZosBe2oErN6nVJsbPCbw7rEuDSUNP1evvRxg8dtyuG"
